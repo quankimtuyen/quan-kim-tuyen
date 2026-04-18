@@ -83,11 +83,11 @@ footer strong{color:var(--gold)}
 <body>
 
 <nav>
-  <a href="#home" class="nav-logo">Kim Tuyen</a>
+  <a href="#home" class="nav-logo">Kim Tuy&#7873;n</a>
   <ul class="nav-links">
     <li><a href="#menu">Thuc don</a></li>
     <li><a href="#gallery">Hinh anh</a></li>
-    <li><a href="#contact">Lien he</a></li>
+    <li><a href="#contact">Li&ecirc;n h&#7879;</a></li>
   </ul>
 </nav>
 
@@ -347,6 +347,22 @@ function closeLb(e,force){
     document.getElementById('lightbox').classList.remove('open');
 }
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('lightbox').classList.remove('open')});
+
+// Fix smooth scroll for all anchor links
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=this.getAttribute('href').replace('#','');
+      var el=document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        var navH=document.querySelector('nav')?document.querySelector('nav').offsetHeight:60;
+        var top=el.getBoundingClientRect().top+window.scrollY-navH;
+        window.scrollTo({top:top,behavior:'smooth'});
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>
