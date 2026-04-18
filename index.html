@@ -16,13 +16,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(253,246,236,0.96);backdrop
 .nav-links a{font-size:0.85rem;font-weight:500;color:var(--gray);text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--red)}
 .hero{min-height:88vh;background:var(--red-dark);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:4rem 1.5rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.015) 60px,rgba(255,255,255,0.015) 61px)}
-.hero-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.8rem,8vw,5.5rem);color:#fff;line-height:1.05;margin-bottom:0.75rem}
-.hero-sub{font-size:clamp(1rem,2.5vw,1.3rem);color:rgba(255,255,255,0.7);font-weight:300;letter-spacing:2px;margin-bottom:2.5rem}
-.hero-badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:2.5rem}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(255,255,255,0.015) 60px,rgba(255,255,255,0.015) 61px);pointer-events:none}
+.hero-eyebrow{position:relative;z-index:2;font-size:0.75rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.hero h1{position:relative;z-index:2;font-family:var(--font-display);font-size:clamp(2.8rem,8vw,5.5rem);color:#fff;line-height:1.05;margin-bottom:0.75rem}
+.hero-sub{position:relative;z-index:2;font-size:clamp(1rem,2.5vw,1.3rem);color:rgba(255,255,255,0.7);font-weight:300;letter-spacing:2px;margin-bottom:2.5rem}
+.hero-badges{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:2.5rem}
 .badge{border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85);padding:5px 16px;border-radius:20px;font-size:0.8rem;letter-spacing:0.5px}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2}
 .btn-primary{background:var(--gold);color:var(--dark);border:none;border-radius:4px;padding:13px 32px;font-family:var(--font-body);font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:none;letter-spacing:0.5px;transition:opacity 0.2s,transform 0.15s;display:inline-block}
 .btn-primary:hover{opacity:0.9;transform:translateY(-1px)}
 .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.5);border-radius:4px;padding:13px 32px;font-family:var(--font-body);font-size:0.9rem;font-weight:500;cursor:pointer;text-decoration:none;letter-spacing:0.5px;transition:background 0.2s;display:inline-block}
@@ -103,7 +103,7 @@ footer strong{color:var(--gold)}
   </div>
   <div class="hero-cta">
     <a href="tel:0355089051" class="btn-primary">&#272;&#7863;t b&agrave;n ngay</a>
-    <a href="#menu" class="btn-outline">Xem th&#7921;c &#273;&#417;n</a>
+    <button class="btn-outline" onclick="var el=document.getElementById('menu');var nav=document.querySelector('nav');var top=el.getBoundingClientRect().top+window.pageYOffset-(nav?nav.offsetHeight:60);window.scrollTo({top:top,behavior:'smooth'});">Xem th&#7921;c &#273;&#417;n</button>
   </div>
 </section>
 
